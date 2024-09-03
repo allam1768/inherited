@@ -34,7 +34,7 @@ class BmiForm extends StatelessWidget {
                     ),
                     onChanged: (value) {
                       double weight = double.tryParse(value) ?? 0.0;
-                      bmiData?.updateBmi(weight, bmiData.height);
+                      bmiData?.updateBmi(weight, bmiData.data.height);
                     },
                   ),
                   const SizedBox(height: 16),
@@ -48,7 +48,7 @@ class BmiForm extends StatelessWidget {
                     ),
                     onChanged: (value) {
                       double height = double.tryParse(value) ?? 0.0;
-                      bmiData?.updateBmi(bmiData.weight, height);
+                      bmiData?.updateBmi(bmiData.data.weight, height);
                     },
                   ),
                 ],

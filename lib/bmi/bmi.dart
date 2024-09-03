@@ -10,21 +10,20 @@ class Bmi extends StatefulWidget {
 }
 
 class _BmiState extends State<Bmi> {
-  double _weight = 0.0;
-  double _height = 0.0;
+  Data data = Data();
 
   void _updateBmi(double weight, double height) {
     setState(() {
-      _weight = weight;
-      _height = height;
+      double tempWeight = weight;
+      double tempHeight = height;
+      data.copy(data.result, data.firstNum, data.firstNum, height, weight);
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return BmiData(
-      weight: _weight,
-      height: _height,
+      data: data,
       updateBmi: _updateBmi,
       child: Scaffold(
 
