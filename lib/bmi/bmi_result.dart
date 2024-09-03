@@ -12,8 +12,8 @@ class BmiResult extends StatelessWidget {
       return const Center(child: Text('Data BMI tidak tersedia'));
     }
 
-    double bmi = (bmiData.height > 0)
-        ? (bmiData.weight / ((bmiData.height / 100) * (bmiData.height / 100)))
+    double bmi = (bmiData.data.height > 0)
+        ? (bmiData.data.weight / ((bmiData.data.height / 100) * (bmiData.data.height / 100)))
         : 0;
 
     String bmiCategory;
