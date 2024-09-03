@@ -3,7 +3,6 @@ import 'package:bmi/BangunDatar/mainList.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../BangunDatar/mainPage.dart';
-import 'bmi_data.dart';
 import 'bmi_result.dart';
 
 class BmiForm extends StatelessWidget {

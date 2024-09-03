@@ -1,4 +1,3 @@
-import 'package:bmi/bmi/bmi.dart';
 import 'package:bmi/bmi/bmi_form.dart';
 import 'package:flutter/material.dart';
 
