@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:menghitung_bangun_ruang/widgets/my_button.dart';
-import 'package:menghitung_bangun_ruang/widgets/my_colors.dart';
-import 'package:menghitung_bangun_ruang/widgets/my_text_field.dart';
-import 'display_luas_kubus.dart';
-import 'kubus_model.dart';
+import 'package:menghitung_bangun_ruang/BangunRuang//widgets/my_button.dart';
+import 'package:menghitung_bangun_ruang/BangunRuang//widgets/my_colors.dart';
+import 'package:menghitung_bangun_ruang/BangunRuang//widgets/my_text_field.dart';
+import 'package:menghitung_bangun_ruang/BangunRuang/pages/bangun_model.dart';
+import 'package:menghitung_bangun_ruang/BangunRuang/pages/display_luas.dart';
 
 class Kubus extends StatefulWidget {
   const Kubus({super.key});
@@ -39,9 +39,13 @@ class _KubusState extends State<Kubus> {
             MyButton(text: "Hitung", onPressed: _updateSisi, color: buttonColor, fontSize: 12, textColor: buttonTextColor),
             const SizedBox(height: 20),
             Expanded(
-              child: KubusModel(
+              child: BangunModel(
                 sisi: _sisi,
-                child: DisplayLuas(),
+                sisi2: 0,
+                sisi3: 0,
+                child: DisplayLuas(
+                  type: "Cube",
+                ),
               ),
             ),
           ],

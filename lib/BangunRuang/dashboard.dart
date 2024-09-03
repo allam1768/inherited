@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:menghitung_bangun_ruang/pages/balok.dart';
-import 'package:menghitung_bangun_ruang/pages/bola.dart';
-import 'package:menghitung_bangun_ruang/pages/kubus.dart';
-import 'package:menghitung_bangun_ruang/widgets/my_button.dart';
-import 'package:menghitung_bangun_ruang/widgets/my_colors.dart';
+import 'package:menghitung_bangun_ruang/BangunRuang/pages/balok.dart';
+import 'package:menghitung_bangun_ruang/BangunRuang//pages/bola.dart';
+import 'package:menghitung_bangun_ruang/BangunRuang//pages/kubus.dart';
+import 'package:menghitung_bangun_ruang/BangunRuang//widgets/my_button.dart';
+import 'package:menghitung_bangun_ruang/BangunRuang//widgets/my_colors.dart';
 
 
 class Dashboard extends StatefulWidget {

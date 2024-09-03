@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:menghitung_bangun_ruang/widgets/my_button.dart';
-import 'package:menghitung_bangun_ruang/widgets/my_colors.dart';
-import 'package:menghitung_bangun_ruang/widgets/my_text_field.dart';
-import 'balok_model.dart';
-import 'display_luas_balok.dart';
+import 'package:menghitung_bangun_ruang/BangunRuang//widgets/my_button.dart';
+import 'package:menghitung_bangun_ruang/BangunRuang//widgets/my_colors.dart';
+import 'package:menghitung_bangun_ruang/BangunRuang//widgets/my_text_field.dart';
+import 'package:menghitung_bangun_ruang/BangunRuang/pages/bangun_model.dart';
+import 'display_luas.dart';
 
 class Balok extends StatefulWidget {
   const Balok({super.key});
@@ -50,11 +50,13 @@ class _BalokState extends State<Balok> {
             MyButton(text: "Hitung", onPressed: _updateDimensions, color: buttonColor, fontSize: 12, textColor: buttonTextColor),
             const SizedBox(height: 20),
             Expanded(
-              child: BalokModel(
-                panjang: _panjang,
-                lebar: _lebar,
-                tinggi: _tinggi,
-                child: DisplayLuasBalok(),
+              child: BangunModel(
+                sisi: _panjang,
+                sisi2: _lebar,
+                sisi3: _tinggi,
+                child: DisplayLuas(
+                  type: 'Block',
+                ),
               ),
             ),
           ],

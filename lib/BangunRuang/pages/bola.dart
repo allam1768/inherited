@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:menghitung_bangun_ruang/widgets/my_button.dart';
-import 'package:menghitung_bangun_ruang/widgets/my_colors.dart';
-import 'package:menghitung_bangun_ruang/widgets/my_text_field.dart';
-import 'bola_model.dart';
-import 'display_luas_bola.dart';
+import 'package:menghitung_bangun_ruang/BangunRuang//widgets/my_button.dart';
+import 'package:menghitung_bangun_ruang/BangunRuang//widgets/my_colors.dart';
+import 'package:menghitung_bangun_ruang/BangunRuang//widgets/my_text_field.dart';
+import 'package:menghitung_bangun_ruang/BangunRuang/pages/bangun_model.dart';
+import 'package:menghitung_bangun_ruang/BangunRuang/pages/display_luas.dart';
 
 class Bola extends StatefulWidget {
   const Bola({super.key});
@@ -40,9 +40,13 @@ class _BolaState extends State<Bola> {
             MyButton(text: "Hitung", onPressed: _updateRadius, color: buttonColor, fontSize: 12, textColor: buttonTextColor),
             const SizedBox(height: 20),
             Expanded(
-              child: BolaModel(
-                radius: _radius,
-                child: DisplayLuasBola(),
+              child: BangunModel(
+                sisi: _radius,
+                sisi2: 0,
+                sisi3: 0,
+                child: DisplayLuas(
+                  type: "Ball",
+                ),
               ),
             ),
           ],
