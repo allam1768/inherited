@@ -1,5 +1,4 @@
 import 'package:bmi/BangunDatar/MainWidget.dart';
-import 'package:bmi/BangunDatar/mainList.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../BangunDatar/mainPage.dart';
@@ -34,7 +33,7 @@ class BmiForm extends StatelessWidget {
                 children: [
                   TextField(
                     inputFormatters: <TextInputFormatter>[
-                    FilteringTextInputFormatter.digitsOnly!
+                    FilteringTextInputFormatter.digitsOnly
                     ],
 
                     keyboardType: TextInputType.number,
@@ -58,7 +57,7 @@ class BmiForm extends StatelessWidget {
                   const SizedBox(height: 16),
                   TextField(
                     inputFormatters: <TextInputFormatter>[
-                      FilteringTextInputFormatter.digitsOnly!
+                      FilteringTextInputFormatter.digitsOnly
                     ],
 
                     keyboardType: TextInputType.number,
@@ -104,20 +103,20 @@ class TheMods extends StatelessWidget {
         onPressed: (){
           moveScreen(context, type);
         },
-        style: ButtonStyle(
+        style: const ButtonStyle(
           backgroundColor: MaterialStatePropertyAll<Color>(
               Color(0x00000000)
           ),
         ),
         child: Container(
-          margin: EdgeInsets.all(5),
+          margin: const EdgeInsets.all(5),
           decoration: BoxDecoration(
-              gradient: LinearGradient(colors: [Colors.red, Colors.deepOrange]),
+              gradient: const LinearGradient(colors: [Colors.red, Colors.deepOrange]),
               borderRadius: BorderRadius.circular(20)
           ),
-          padding: EdgeInsets.all(2),
+          padding: const EdgeInsets.all(2),
           child: Container(
-            padding: EdgeInsets.all(5),
+            padding: const EdgeInsets.all(5),
             decoration: BoxDecoration(
                 color: Colors.black,
                 borderRadius: BorderRadius.circular(18)
@@ -125,7 +124,7 @@ class TheMods extends StatelessWidget {
             child: Expanded(
               child: Column(
                 children: [
-                  Text(type, style: TextStyle(fontSize: 20, color: Colors.white),)
+                  Text(type, style: const TextStyle(fontSize: 20, color: Colors.white),)
                 ],
               ),
             ),

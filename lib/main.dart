@@ -2,7 +2,6 @@ import 'package:bmi/bmi/bmi_form.dart';
 import 'package:flutter/material.dart';
 
 import 'BangunDatar/MainWidget.dart';
-import 'BangunDatar/mainList.dart';
 
 void main() {
   runApp(const MyApp());
