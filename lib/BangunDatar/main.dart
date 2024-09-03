@@ -1,7 +1,7 @@
-import 'package:aritmatika/MainWidget.dart';
-import 'package:aritmatika/mainPage.dart';
+
 import 'package:flutter/material.dart';
 
+import 'MainWidget.dart';
 import 'mainList.dart';
 
 void main() {

@@ -1,8 +1,10 @@
 import 'dart:math';
 
-import 'package:aritmatika/baseData.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import 'baseData.dart';
 
 class BaseWidget extends StatefulWidget {
   final Widget child;
@@ -32,7 +34,15 @@ class _BaseWidgetState extends State<BaseWidget> {
           res = (data.firstNum * data.secondNum).round();
           break;
       }
-      final newData = data.copy(res, data.firstNum, data.secondNum);
+      final newData = data.copy(res, data.firstNum, data.secondNum, data.height, data.weight);
+      data = newData;
+    });
+  }
+  void updateBmi(double weight, double height) {
+    setState(() {
+      double tempWeight = weight;
+      double tempHeight = height;
+      final newData = data.copy(data.result, data.firstNum, data.firstNum, tempHeight, tempWeight);
       data = newData;
     });
   }
@@ -41,7 +51,7 @@ class _BaseWidgetState extends State<BaseWidget> {
     setState(() {
       final firstNum = num;
 
-      final newData = data.copy(data.result, firstNum, data.secondNum);
+      final newData = data.copy(data.result, firstNum, data.secondNum, data.height, data.weight);
       data = newData;
     });
   }
@@ -49,7 +59,7 @@ class _BaseWidgetState extends State<BaseWidget> {
     setState(() {
       final secondNum = num;
 
-      final newData = data.copy(data.result, data.firstNum, secondNum);
+      final newData = data.copy(data.result, data.firstNum, secondNum, data.height, data.weight);
       data = newData;
     });
   }

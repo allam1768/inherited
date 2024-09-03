@@ -3,11 +3,17 @@ import 'package:flutter/material.dart';
 class BmiData extends InheritedWidget {
   final Data data;
   final Function(double, double) updateBmi;
+  final Function(String) calculate;
+  final Function(int) firstParamSetter;
+  final Function(int) secondParamSetter;
 
   const BmiData({
     Key? key,
     required this.data,
     required this.updateBmi,
+    required this.calculate,
+    required this.firstParamSetter,
+    required this.secondParamSetter,
     required Widget child,
   }) : super(key: key, child: child);
 

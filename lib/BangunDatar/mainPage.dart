@@ -1,6 +1,8 @@
-import 'package:aritmatika/MainWidget.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
+import 'MainWidget.dart';
 
 class mainPage extends StatefulWidget {
   final String type;

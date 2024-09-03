@@ -1,13 +1,22 @@
+import 'package:bmi/BangunDatar/MainWidget.dart';
+import 'package:bmi/BangunDatar/mainList.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import '../BangunDatar/mainPage.dart';
 import 'bmi_data.dart';
 import 'bmi_result.dart';
 
 class BmiForm extends StatelessWidget {
-  const BmiForm({super.key});
+  BmiForm({super.key});
+  final List<String> shapes = <String>[
+    "triangle",
+    "circle",
+    "square"
+  ];
 
   @override
   Widget build(BuildContext context) {
-    final bmiData = BmiData.of(context);
+    final bmiData = BaseInherit.of(context);
 
     return Padding(
       padding: const EdgeInsets.all(16.0),
@@ -25,6 +34,10 @@ class BmiForm extends StatelessWidget {
               child: Column(
                 children: [
                   TextField(
+                    inputFormatters: <TextInputFormatter>[
+                    FilteringTextInputFormatter.digitsOnly!
+                    ],
+
                     keyboardType: TextInputType.number,
                     decoration: InputDecoration(
                       labelText: 'Weight (kg)',
@@ -33,12 +46,22 @@ class BmiForm extends StatelessWidget {
                       ),
                     ),
                     onChanged: (value) {
-                      double weight = double.tryParse(value) ?? 0.0;
-                      bmiData?.updateBmi(weight, bmiData.data.height);
+                      print(value);
+                      try{
+                        double num = double.parse(value);
+                        bmiData.updateBmi(num, bmiData.data.height);
+                      }
+                      catch(e){
+                        print(e);
+                      }
                     },
                   ),
                   const SizedBox(height: 16),
                   TextField(
+                    inputFormatters: <TextInputFormatter>[
+                      FilteringTextInputFormatter.digitsOnly!
+                    ],
+
                     keyboardType: TextInputType.number,
                     decoration: InputDecoration(
                       labelText: 'Height (cm)',
@@ -47,8 +70,14 @@ class BmiForm extends StatelessWidget {
                       ),
                     ),
                     onChanged: (value) {
-                      double height = double.tryParse(value) ?? 0.0;
-                      bmiData?.updateBmi(bmiData.data.weight, height);
+                      print(value);
+                      try{
+                        double num = double.parse(value);
+                        bmiData.updateBmi(bmiData.data.weight, num);
+                      }
+                      catch(e){
+                        print(e);
+                      }
                     },
                   ),
                 ],
@@ -59,6 +88,53 @@ class BmiForm extends StatelessWidget {
 
         ],
       ),
+      // child: theList(),
     );
   }
+}
+class TheMods extends StatelessWidget {
+  final String type;
+  const TheMods({
+    super.key,
+    required this.type
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+        onPressed: (){
+          moveScreen(context, type);
+        },
+        style: ButtonStyle(
+          backgroundColor: MaterialStatePropertyAll<Color>(
+              Color(0x00000000)
+          ),
+        ),
+        child: Container(
+          margin: EdgeInsets.all(5),
+          decoration: BoxDecoration(
+              gradient: LinearGradient(colors: [Colors.red, Colors.deepOrange]),
+              borderRadius: BorderRadius.circular(20)
+          ),
+          padding: EdgeInsets.all(2),
+          child: Container(
+            padding: EdgeInsets.all(5),
+            decoration: BoxDecoration(
+                color: Colors.black,
+                borderRadius: BorderRadius.circular(18)
+            ),
+            child: Expanded(
+              child: Column(
+                children: [
+                  Text(type, style: TextStyle(fontSize: 20, color: Colors.white),)
+                ],
+              ),
+            ),
+          ),
+        )
+    );
+  }
+}
+void moveScreen(BuildContext context, String shape){
+  Navigator.push(context, MaterialPageRoute(builder: (context) => mainPage(type: shape)),);
 }
