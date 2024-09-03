@@ -1,19 +1,19 @@
+import 'package:bmi/BangunDatar/MainWidget.dart';
 import 'package:flutter/material.dart';
-import 'bmi_data.dart';
 
 class BmiResult extends StatelessWidget {
   const BmiResult({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final bmiData = BmiData.of(context);
+    final provider = BaseInherit.of(context).data;
 
-    if (bmiData == null) {
+    if (provider == null) {
       return const Center(child: Text('Data BMI tidak tersedia'));
     }
 
-    double bmi = (bmiData.data.height > 0)
-        ? (bmiData.data.weight / ((bmiData.data.height / 100) * (bmiData.data.height / 100)))
+    double bmi = (provider.height > 0)
+        ? (provider.weight / ((provider.height / 100) * (provider.height / 100)))
         : 0;
 
     String bmiCategory;
