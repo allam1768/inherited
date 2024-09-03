@@ -30,11 +30,14 @@ class NumberInput extends StatelessWidget {
   final String label;
   final Function(int) onChanged;
 
-  NumberInput({required this.label, required this.onChanged});
+  NumberInput({required this.label, required this.onChanged, Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final TextEditingController controller = TextEditingController();
+    
     return TextField(
+      controller: controller,
       decoration: InputDecoration(labelText: label),
       keyboardType: TextInputType.number,
       onChanged: (value) {
@@ -47,12 +50,14 @@ class NumberInput extends StatelessWidget {
 class OperationSelector extends StatelessWidget {
   final Function(String) onOperationSelected;
 
-  OperationSelector({required this.onOperationSelected});
+  OperationSelector({required this.onOperationSelected, Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final currentOperation = ArithmeticState.of(context)?.operation ?? '+';
+
     return DropdownButton<String>(
-      value: ArithmeticState.of(context)?.operation ?? '+',
+      value: currentOperation,
       items: ['+', '-', '*', '/'].map((String operation) {
         return DropdownMenuItem<String>(
           value: operation,
@@ -75,6 +80,8 @@ class ResultDisplay extends StatelessWidget {
     if (state == null) return SizedBox.shrink();
 
     int result;
+    String resultText;
+
     switch (state.operation) {
       case '+':
         result = state.number1 + state.number2;
@@ -86,16 +93,18 @@ class ResultDisplay extends StatelessWidget {
         result = state.number1 * state.number2;
         break;
       case '/':
-        result = state.number2 != 0 ? state.number1 ~/ state.number2 : 0;
+        if (state.number2 == 0) {
+          resultText = 'Error: Division by zero';
+          return Text(resultText, style: TextStyle(fontSize: 24, color: Colors.red));
+        }
+        result = state.number1 ~/ state.number2;
         break;
       default:
         result = 0;
     }
 
-    return Text(
-      'Result: $result',
-      style: TextStyle(fontSize: 24),
-    );
+    resultText = 'Result: $result';
+    return Text(resultText, style: TextStyle(fontSize: 24));
   }
 }
 
