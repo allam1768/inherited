@@ -1,6 +1,6 @@
 {
-    "name": "bmi",
-    "short_name": "bmi",
+    "name": "menghitung_bangun_ruang",
+    "short_name": "menghitung_bangun_ruang",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

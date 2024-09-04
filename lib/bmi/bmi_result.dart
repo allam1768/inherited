@@ -1,5 +1,6 @@
-import 'package:bmi/BangunDatar/MainWidget.dart';
+import 'package:menghitung_bangun_ruang/BangunDatar/MainWidget.dart';
 import 'package:flutter/material.dart';
+import 'bmi_data.dart';
 
 class BmiResult extends StatelessWidget {
   const BmiResult({super.key});

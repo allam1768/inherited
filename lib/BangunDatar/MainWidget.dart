@@ -18,7 +18,7 @@ class BaseWidget extends StatefulWidget {
 }
 
 class _BaseWidgetState extends State<BaseWidget> {
-  baseData data = const baseData();
+  baseData data = baseData();
 
   void calculate(String type){
     setState(() {
@@ -68,8 +68,8 @@ class _BaseWidgetState extends State<BaseWidget> {
   Widget build(BuildContext context) {
     return BaseInherit(
       data: data,
-      baseWidget: this,
-      child: widget.child
+      child: widget.child,
+      baseWidget: this
     );
   }
 }

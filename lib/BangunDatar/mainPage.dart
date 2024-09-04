@@ -26,7 +26,7 @@ class _mainPageState extends State<mainPage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(type),
+        title: Text('$type'),
       ),
       body: Center(
         child: Column(
@@ -34,7 +34,7 @@ class _mainPageState extends State<mainPage> {
             Text('First Number = $firstNum'),
             TextField(
               inputFormatters: <TextInputFormatter>[
-                FilteringTextInputFormatter.digitsOnly
+                FilteringTextInputFormatter.digitsOnly!
               ],
               keyboardType: TextInputType.number,
               onChanged: (text) {
@@ -53,7 +53,7 @@ class _mainPageState extends State<mainPage> {
               Text('Second Number = $secondNum'),
               TextField(
                 inputFormatters: <TextInputFormatter>[
-                  FilteringTextInputFormatter.digitsOnly
+                  FilteringTextInputFormatter.digitsOnly!
                 ],
                 keyboardType: TextInputType.number,
                 onChanged: (text) {
