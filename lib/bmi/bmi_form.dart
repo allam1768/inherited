@@ -18,77 +18,84 @@ class BmiForm extends StatelessWidget {
   Widget build(BuildContext context) {
     final bmiData = BaseInherit.of(context);
 
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const BmiResult(),
-          Card(
-            elevation: 4,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(8.0),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Column(
-                children: [
-                  TextField(
-                    inputFormatters: <TextInputFormatter>[
-                    FilteringTextInputFormatter.digitsOnly!
-                    ],
-
-                    keyboardType: TextInputType.number,
-                    decoration: InputDecoration(
-                      labelText: 'Weight (kg)',
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8.0),
-                      ),
-                    ),
-                    onChanged: (value) {
-                      print(value);
-                      try{
-                        double num = double.parse(value);
-                        bmiData.updateBmi(num, bmiData.data.height);
-                      }
-                      catch(e){
-                        print(e);
-                      }
-                    },
-                  ),
-                  const SizedBox(height: 16),
-                  TextField(
-                    inputFormatters: <TextInputFormatter>[
-                      FilteringTextInputFormatter.digitsOnly!
-                    ],
-
-                    keyboardType: TextInputType.number,
-                    decoration: InputDecoration(
-                      labelText: 'Height (cm)',
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8.0),
-                      ),
-                    ),
-                    onChanged: (value) {
-                      print(value);
-                      try{
-                        double num = double.parse(value);
-                        bmiData.updateBmi(bmiData.data.weight, num);
-                      }
-                      catch(e){
-                        print(e);
-                      }
-                    },
-                  ),
-                ],
-              ),
-            ),
-          ),
-          const SizedBox(height: 32),
-
-        ],
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("BMI Calculator", style: TextStyle(color: Colors.white),),
       ),
-      // child: theList(),
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const BmiResult(),
+              Card(
+                elevation: 4,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Column(
+                    children: [
+                      TextField(
+                        inputFormatters: <TextInputFormatter>[
+                          FilteringTextInputFormatter.digitsOnly!
+                        ],
+
+                        keyboardType: TextInputType.number,
+                        decoration: InputDecoration(
+                          labelText: 'Weight (kg)',
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8.0),
+                          ),
+                        ),
+                        onChanged: (value) {
+                          print(value);
+                          try{
+                            double num = double.parse(value);
+                            bmiData.updateBmi(num, bmiData.data.height);
+                          }
+                          catch(e){
+                            print(e);
+                          }
+                        },
+                      ),
+                      const SizedBox(height: 16),
+                      TextField(
+                        inputFormatters: <TextInputFormatter>[
+                          FilteringTextInputFormatter.digitsOnly!
+                        ],
+
+                        keyboardType: TextInputType.number,
+                        decoration: InputDecoration(
+                          labelText: 'Height (cm)',
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8.0),
+                          ),
+                        ),
+                        onChanged: (value) {
+                          print(value);
+                          try{
+                            double num = double.parse(value);
+                            bmiData.updateBmi(bmiData.data.weight, num);
+                          }
+                          catch(e){
+                            print(e);
+                          }
+                        },
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(height: 32),
+
+            ],
+          ),
+          // child: theList(),
+        ),
+      ),
     );
   }
 }
