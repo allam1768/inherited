@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:menghitung_bangun_ruang/Aritmatika/aritmatika.dart';
+import 'package:menghitung_bangun_ruang/BangunDatar/mainList.dart';
 import 'package:menghitung_bangun_ruang/BangunRuang/dashboard.dart';
 import 'package:menghitung_bangun_ruang/bmi/bmi_form.dart';
 
@@ -71,7 +72,7 @@ class HomeScreen extends StatelessWidget {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const Dashboard()),
+                  MaterialPageRoute(builder: (context) => const theList()),
                 );
               },
             ),

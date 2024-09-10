@@ -20,7 +20,7 @@ class BmiForm extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("BMI Calculator", style: TextStyle(color: Colors.white),),
+        title: Text("BMI Calculator", style: TextStyle(color: Colors.black),),
       ),
       body: Center(
         child: Padding(
