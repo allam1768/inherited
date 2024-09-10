@@ -33,9 +33,7 @@ class BangunModel extends InheritedWidget{
         break;
     }
   }
-  double get luasPermukaanBola => 4 * pi * sisi * sisi;
-  double get luasPermukaanKubus => 6 * sisi * sisi;
-  double get luasPermukaanBalok => 2* (sisi * sisi2 + sisi2 * sisi3 + sisi * sisi3);
+
 
   @override
   bool updateShouldNotify(covariant BangunModel oldWidget) {
