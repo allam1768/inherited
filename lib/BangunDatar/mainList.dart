@@ -21,12 +21,16 @@ class _theListState extends State<theList> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("hello"),
+        title: Text("Bangun Datar", style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 22,
+            color: Colors.white
+        ),),
         backgroundColor: Colors.blue,
       ),
       body: Center(
         child: Container(
-            color: Colors.black,
+            color: Colors.white,
             child: ListView.builder(
               itemCount: shapes.length,
               itemBuilder: (context, index){
@@ -52,13 +56,12 @@ class TheMods extends StatelessWidget {
         onPressed: (){
           moveScreen(context, type);
         },
-        style: ButtonStyle(
-          backgroundColor: MaterialStatePropertyAll<Color>(
-              Color(0x00000000)
-          ),
+        style: ElevatedButton.styleFrom(
+          backgroundColor: Colors.white,
+          foregroundColor: Colors.white,
+          shadowColor: Colors.white,
         ),
         child: Container(
-          margin: EdgeInsets.all(5),
           decoration: BoxDecoration(
               gradient: LinearGradient(colors: [Colors.red, Colors.deepOrange]),
               borderRadius: BorderRadius.circular(20)
@@ -67,15 +70,15 @@ class TheMods extends StatelessWidget {
           child: Container(
             padding: EdgeInsets.all(5),
             decoration: BoxDecoration(
-                color: Colors.black,
+                color: Colors.white,
                 borderRadius: BorderRadius.circular(18)
             ),
-            child: Expanded(
-              child: Column(
-                children: [
-                  Text(type, style: TextStyle(fontSize: 20, color: Colors.white),)
-                ],
-              ),
+            child: Row(
+              children: [
+                Expanded(child: Container()),
+                Text(type, style: TextStyle(fontSize: 20, color: Colors.black),),
+                Expanded(child: Container()),
+              ],
             ),
           ),
         )

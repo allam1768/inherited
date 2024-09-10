@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class ArithmeticState extends InheritedWidget {
   final int number1;
@@ -139,13 +140,25 @@ class _ArithmeticAppState extends State<ArithmeticApp> {
           padding: const EdgeInsets.all(16.0),
           child: Column(
             children: [
-              NumberInput(
-                label: 'Number 1',
-                onChanged: (value) => _updateValues(value, _number2, _operation),
+              TextField(
+                inputFormatters: <TextInputFormatter>[
+                  FilteringTextInputFormatter.digitsOnly!
+                ],
+                keyboardType: TextInputType.number,
+                decoration: const InputDecoration(
+                  hintText: "Number 1"
+                ),
+                onChanged: (value) => _updateValues(int.parse(value), _number2, _operation),
               ),
-              NumberInput(
-                label: 'Number 2',
-                onChanged: (value) => _updateValues(_number1, value, _operation),
+              TextField(
+                inputFormatters: <TextInputFormatter>[
+                  FilteringTextInputFormatter.digitsOnly!
+                ],
+                keyboardType: TextInputType.number,
+                decoration: const InputDecoration(
+                    hintText: "Number 2"
+                ),
+                onChanged: (value) => _updateValues(_number1, int.parse(value), _operation),
               ),
               OperationSelector(
                 onOperationSelected: (operation) =>

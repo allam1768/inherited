@@ -4,7 +4,7 @@ import 'dart:math';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'baseData.dart';
+import '../baseData.dart';
 
 class BaseWidget extends StatefulWidget {
   final Widget child;
